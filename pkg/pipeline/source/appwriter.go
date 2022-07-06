@@ -14,10 +14,10 @@ import (
 	"github.com/tinyzimmer/go-gst/gst/app"
 	"go.uber.org/atomic"
 
-	"github.com/livekit/livekit-server/pkg/sfu/buffer"
 	lksdk "github.com/livekit/server-sdk-go"
 	"github.com/livekit/server-sdk-go/pkg/samplebuilder"
 	"github.com/tomxiong/livekit/pkg/sfu"
+	"github.com/tomxiong/livekit/pkg/sfu/buffer"
 	"github.com/tomxiong/protocol/logger"
 
 	"github.com/livekit/egress/pkg/errors"

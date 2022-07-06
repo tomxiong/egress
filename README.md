@@ -145,7 +145,22 @@ redis:
   address: must be the same redis address used by your livekit server
   username: redis username
   password: redis password
-  db: redis db
+  db: redis db  
+  # To use sentinel remove the address key above and add the following
+  # sentinel_master_name: livekit
+  # sentinel_addresses:
+  # - livekit-redis-node-0.livekit-redis-headless:26379
+  # - livekit-redis-node-1.livekit-redis-headless:26379
+  # If you use a different set of credentials for sentinel add
+  # sentinel_username: user
+  # sentinel_password: pass
+  #
+  # To use cluster remove the address key above and add the following
+  # cluster_addresses:
+  # - livekit-redis-node-0.livekit-redis-headless:6379
+  # - livekit-redis-node-1.livekit-redis-headless:6380
+  # And it will use the password key above as cluster password
+  # And the db key will not be used due to cluster mode not support it.
 
 # optional fields
 health_port: if used, will open an http port for health checks

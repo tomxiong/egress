@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v3"
 
-	"github.com/livekit/protocol/logger"
+	"github.com/tomxiong/protocol/logger"
 
 	"github.com/livekit/egress/pkg/config"
 )

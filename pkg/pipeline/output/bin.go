@@ -5,8 +5,8 @@ import (
 
 	"github.com/tinyzimmer/go-gst/gst"
 
-	"github.com/livekit/protocol/logger"
-	"github.com/livekit/protocol/tracer"
+	"github.com/tomxiong/protocol/logger"
+	"github.com/tomxiong/protocol/tracer"
 
 	"github.com/livekit/egress/pkg/errors"
 	"github.com/livekit/egress/pkg/pipeline/params"

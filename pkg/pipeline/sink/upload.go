@@ -18,7 +18,7 @@ import (
 	"google.golang.org/api/googleapi"
 	"google.golang.org/api/option"
 
-	"github.com/livekit/protocol/livekit"
+	"github.com/tomxiong/protocol/livekit"
 
 	"github.com/livekit/egress/pkg/pipeline/params"
 )

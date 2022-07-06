@@ -15,8 +15,8 @@ import (
 	"github.com/chromedp/cdproto/runtime"
 	"github.com/chromedp/chromedp"
 
-	"github.com/livekit/protocol/logger"
-	"github.com/livekit/protocol/tracer"
+	"github.com/tomxiong/protocol/logger"
+	"github.com/tomxiong/protocol/tracer"
 
 	"github.com/livekit/egress/pkg/config"
 	"github.com/livekit/egress/pkg/errors"

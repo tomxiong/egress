@@ -14,15 +14,16 @@ import (
 	"github.com/urfave/cli/v2"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/livekit/protocol/egress"
-	"github.com/livekit/protocol/livekit"
-	"github.com/livekit/protocol/logger"
-	"github.com/livekit/protocol/tracer"
+	"github.com/tomxiong/protocol/egress"
+	"github.com/tomxiong/protocol/livekit"
+	"github.com/tomxiong/protocol/logger"
+	"github.com/tomxiong/protocol/tracer"
 
 	"github.com/livekit/egress/pkg/config"
 	"github.com/livekit/egress/pkg/errors"
 	"github.com/livekit/egress/pkg/service"
 	"github.com/livekit/egress/version"
+	redisClient "github.com/tomxiong/protocol/utils/redis"
 )
 
 func main() {
@@ -165,22 +166,46 @@ func getConfig(c *cli.Context) (*config.Config, error) {
 	return config.NewConfig(configBody)
 }
 
-func getRedisClient(conf *config.Config) (*redis.Client, error) {
+func getRedisClient(conf *config.Config) (redisClient.RedisClient, error) {
 	logger.Infow("connecting to redis", "addr", conf.Redis.Address)
 
+	var rc redisClient.RedisClient
 	var tlsConfig *tls.Config
 	if conf.Redis.UseTLS {
 		tlsConfig = &tls.Config{
 			MinVersion: tls.VersionTLS12,
 		}
 	}
-	rc := redis.NewClient(&redis.Options{
-		Addr:      conf.Redis.Address,
-		Username:  conf.Redis.Username,
-		Password:  conf.Redis.Password,
-		DB:        conf.Redis.DB,
-		TLSConfig: tlsConfig,
-	})
+	if conf.UseCluster() {
+		logger.Infow("using multi-node routing via redis", "cluster", true, "addr", conf.Redis.ClusterAddresses)
+		rcOptions := &redis.ClusterOptions{
+			Addrs:     conf.Redis.ClusterAddresses,
+			Password:  conf.Redis.Password,
+			TLSConfig: tlsConfig,
+		}
+		rc = redis.NewClusterClient(rcOptions)
+	} else if conf.UseSentinel() {
+		logger.Infow("using multi-node routing via redis", "sentinel", true, "addr", conf.Redis.SentinelAddresses, "masterName", conf.Redis.MasterName)
+		rcOptions := &redis.FailoverOptions{
+			SentinelAddrs:    conf.Redis.SentinelAddresses,
+			SentinelUsername: conf.Redis.SentinelUsername,
+			SentinelPassword: conf.Redis.SentinelPassword,
+			MasterName:       conf.Redis.MasterName,
+			Username:         conf.Redis.Username,
+			Password:         conf.Redis.Password,
+			DB:               conf.Redis.DB,
+			TLSConfig:        tlsConfig,
+		}
+		rc = redis.NewFailoverClient(rcOptions)
+	} else {
+		rc = redis.NewClient(&redis.Options{
+			Addr:      conf.Redis.Address,
+			Username:  conf.Redis.Username,
+			Password:  conf.Redis.Password,
+			DB:        conf.Redis.DB,
+			TLSConfig: tlsConfig,
+		})
+	}
 	err := rc.Ping(context.Background()).Err()
 	return rc, err
 }

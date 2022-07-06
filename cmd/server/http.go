@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/livekit/protocol/logger"
+	"github.com/tomxiong/protocol/logger"
 
 	"github.com/livekit/egress/pkg/service"
 )

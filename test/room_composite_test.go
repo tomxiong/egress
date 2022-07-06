@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/livekit/protocol/livekit"
-	"github.com/livekit/protocol/utils"
 	lksdk "github.com/livekit/server-sdk-go"
+	"github.com/tomxiong/protocol/livekit"
+	"github.com/tomxiong/protocol/utils"
 
 	"github.com/livekit/egress/pkg/pipeline/params"
 )

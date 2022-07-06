@@ -9,9 +9,9 @@ import (
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/yaml.v3"
 
-	"github.com/livekit/protocol/livekit"
-	"github.com/livekit/protocol/logger"
-	"github.com/livekit/protocol/utils"
+	"github.com/tomxiong/protocol/livekit"
+	"github.com/tomxiong/protocol/logger"
+	"github.com/tomxiong/protocol/utils"
 
 	"github.com/livekit/egress/pkg/errors"
 )
@@ -50,11 +50,16 @@ type Config struct {
 }
 
 type RedisConfig struct {
-	Address  string `yaml:"address"`
-	Username string `yaml:"username"`
-	Password string `yaml:"password"`
-	DB       int    `yaml:"db"`
-	UseTLS   bool   `yaml:"use_tls"`
+	Address           string   `yaml:"address"`
+	Username          string   `yaml:"username"`
+	Password          string   `yaml:"password"`
+	DB                int      `yaml:"db"`
+	UseTLS            bool     `yaml:"use_tls"`
+	MasterName        string   `yaml:"sentinel_master_name"`
+	SentinelUsername  string   `yaml:"sentinel_username"`
+	SentinelPassword  string   `yaml:"sentinel_password"`
+	SentinelAddresses []string `yaml:"sentinel_addresses"`
+	ClusterAddresses  []string `yaml:"cluster_addresses"`
 }
 
 type S3Config struct {
@@ -156,4 +161,16 @@ func (c *Config) initLogger() error {
 	l, _ := conf.Build()
 	logger.SetLogger(zapr.NewLogger(l).WithValues("nodeID", c.NodeID), "egress")
 	return nil
+}
+
+func (conf *Config) HasRedis() bool {
+	return conf.Redis.Address != "" || conf.Redis.SentinelAddresses != nil || conf.Redis.ClusterAddresses != nil
+}
+
+func (conf *Config) UseSentinel() bool {
+	return conf.Redis.SentinelAddresses != nil
+}
+
+func (conf *Config) UseCluster() bool {
+	return conf.Redis.ClusterAddresses != nil
 }

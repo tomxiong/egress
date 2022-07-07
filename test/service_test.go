@@ -13,10 +13,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/proto"
 
-	lksdk "github.com/livekit/server-sdk-go"
 	"github.com/tomxiong/protocol/egress"
 	"github.com/tomxiong/protocol/livekit"
 	"github.com/tomxiong/protocol/utils"
+	lksdk "github.com/tomxiong/server-sdk-go"
 
 	"github.com/livekit/egress/pkg/pipeline/params"
 	"github.com/livekit/egress/pkg/service"

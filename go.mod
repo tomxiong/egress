@@ -17,9 +17,6 @@ require (
 	github.com/googleapis/gax-go/v2 v2.3.0
 	github.com/gorilla/websocket v1.4.2
 	github.com/grafov/m3u8 v0.11.1
-	github.com/tomxiong/livekit v1.0.7
-	github.com/tomxiong/protocol v0.1.6
-	github.com/livekit/server-sdk-go v0.10.2
 	github.com/mackerelio/go-osstat v0.2.1
 	github.com/pion/rtp v1.7.13
 	github.com/pion/webrtc/v3 v3.1.42
@@ -27,6 +24,9 @@ require (
 	github.com/stretchr/testify v1.7.1
 	github.com/tinyzimmer/go-glib v0.0.25
 	github.com/tinyzimmer/go-gst v0.2.32
+	github.com/tomxiong/livekit v1.0.8
+	github.com/tomxiong/protocol v0.1.6
+	github.com/tomxiong/server-sdk-go v0.9.7
 	github.com/urfave/cli/v2 v2.3.0
 	go.uber.org/atomic v1.9.0
 	go.uber.org/zap v1.21.0

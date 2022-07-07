@@ -473,9 +473,12 @@ github.com/tinyzimmer/go-glib v0.0.25 h1:2GpumtkxA0wpXhCXP6D3ksb5pGMfo9WbhgLvEw8
 github.com/tinyzimmer/go-glib v0.0.25/go.mod h1:ltV0gO6xNFzZhsIRbFXv8RTq9NGoNT2dmAER4YmZfaM=
 github.com/tomxiong/livekit v1.0.5 h1:1WOiu/klpw7fNOboZV+YoFD9k35uefpSZU/nZti6j0k=
 github.com/tomxiong/livekit v1.0.5/go.mod h1:FMG86QlgYV2luP3SCfT8rfd5w+rSUP3TKQKQWMGaDa4=
+github.com/tomxiong/livekit v1.0.6/go.mod h1:GbQJj2I51GZYgplzemHCkPvGqulQIeGaac5FDh1lqp4=
 github.com/tomxiong/protocol v0.1.4/go.mod h1:Xmr13C7C9vmE+Oob79qF1ZFa0VjWsV+rAcTzk6ZLcEY=
 github.com/tomxiong/protocol v0.1.5 h1:w2NX5VvWbn+TE2uDYHGnzpC3H+K57jCLWefjd0L8Ngk=
 github.com/tomxiong/protocol v0.1.5/go.mod h1:Xmr13C7C9vmE+Oob79qF1ZFa0VjWsV+rAcTzk6ZLcEY=
+github.com/tomxiong/protocol v0.1.6 h1:Wyy/OACGfgml1vMQ6n5+0Kj4hqDk3WVZ6jQB6TtFmvQ=
+github.com/tomxiong/protocol v0.1.6/go.mod h1:Xmr13C7C9vmE+Oob79qF1ZFa0VjWsV+rAcTzk6ZLcEY=
 github.com/twitchtv/twirp v8.1.0+incompatible/go.mod h1:RRJoFSAmTEh2weEqWtpPE3vFK5YBhA6bqp2l1kfCC5A=
 github.com/twitchtv/twirp v8.1.1+incompatible h1:s5WnVKMhC4Xz1jOfNAqTg85iguOWAvsrCJoPiezlLFA=
 github.com/twitchtv/twirp v8.1.1+incompatible/go.mod h1:RRJoFSAmTEh2weEqWtpPE3vFK5YBhA6bqp2l1kfCC5A=

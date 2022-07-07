@@ -17,7 +17,7 @@ require (
 	github.com/googleapis/gax-go/v2 v2.3.0
 	github.com/gorilla/websocket v1.4.2
 	github.com/grafov/m3u8 v0.11.1
-	github.com/tomxiong/livekit v1.0.6
+	github.com/tomxiong/livekit v1.0.7
 	github.com/tomxiong/protocol v0.1.6
 	github.com/livekit/server-sdk-go v0.10.2
 	github.com/mackerelio/go-osstat v0.2.1

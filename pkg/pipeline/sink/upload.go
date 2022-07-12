@@ -183,5 +183,5 @@ func UploadAliOSS(conf *livekit.AliOSSUpload, localFilePath, requestedPath strin
 	if err != nil {
 		return "", err
 	}
-	return fmt.Sprintf("https://%s.oss-cn-%s.aliyuncs.com/%s", conf.Bucket, conf.Endpoint, requestedPath), nil
+	return fmt.Sprintf("https://%s.%s/%s", conf.Bucket, conf.Endpoint, requestedPath), nil
 }

@@ -26,7 +26,7 @@ jobs:
         id: docker-md
         uses: docker/metadata-action@v3
         with:
-          images: livekit/egress
+          images: tomxiong/egress
           tags: |
             type=semver,pattern=v{{version}}
             type=semver,pattern=v{{major}}.{{minor}}

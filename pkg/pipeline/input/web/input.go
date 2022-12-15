@@ -90,7 +90,7 @@ func (s *WebInput) Close() {
 		}
 		s.xvfb = nil
 	}
-
+	logger.Infow("stop pulse sink : %s", s.pulseSink)
 	if s.pulseSink != "" {
 		err := exec.Command("pactl", "unload-module", s.pulseSink).Run()
 		if err != nil {
